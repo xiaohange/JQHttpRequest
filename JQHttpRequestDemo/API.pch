@@ -1,0 +1,11 @@
+//
+//  API.pch
+//  JQHttpRequest
+//
+//  Created by 韩俊强 on 2017/5/16.
+//  Copyright © 2017年 HaRi. All rights reserved.
+//
+
+#define COLLECTION_LIST @"https://api.douban.com/v2/book/1220562" // get列表
+
+
