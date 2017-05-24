@@ -21,7 +21,7 @@
         
     } progress:^(NSProgress *progress) {
         
-     /* 不能为nil，因为AFN的默认参数是 _Nonnull 修饰的！*/
+     /* progress:^(NSProgress *progress)  不能为nil，因为AFN的默认参数是 _Nonnull 修饰的！*/
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error);
