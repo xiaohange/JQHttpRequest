@@ -3,7 +3,6 @@
 ===
  JQHttpRequest:目前二次封装网络库支持四种请求：GET、POST、PUT、DELETE较常见的请求，HEAD/PATH/COPY/OPTIONS/LINK/LOCK等不常用的后续会根据需求调整,本库支持数据缓存、缓存超时设置、请求超时设置等;支持cer证书验证等;
  
----
 ## Installation
 
 #### From CocoaPods
@@ -39,7 +38,7 @@ RequestType:
              JQRequestMethodPOST,
              JQRequestMethodPUT,
              JQRequestMethodDELETE 目前支持四种,会持续更新;
--------------------------------------------------------
+-------------------------------------------------------------------------
 Cachetype: 缓存类型：
 JQBaseRequestReturnCacheDataThenLoad = 0,  ///< 有缓存就先返回缓存，同步请求数据
 JQBaseRequestReloadIgnoringLocalCacheData, ///< 忽略缓存，重新请求
@@ -84,11 +83,15 @@ Parameters:      参数设置 字典传输
 - (NSURLSessionDownloadTask *)downloadWithSuccess:(JQFileSuccess)Success progress:(JQProgress)Progress failure:(JQResponseFail)Fail;
 ```
 ## Note
+
+![](https://github.com/xiaohange/JQHttpRequest/blob/master/fail.png?raw=true)
+
 `progress:^(NSProgress *progress)`不能为nil，因为AFN的默认参数是 _Nonnull 修饰的！
-## QT
-- [CSDN博客](http://blog.csdn.net/qq_31810357)
-- [新浪微博](http://weibo.com/hanjunqiang)
-- [iOS开发者交流群：446310206]()
+
+- 正确姿势：
+
+![](https://github.com/xiaohange/JQHttpRequest/blob/master/success.png?raw=true)
+
 
 ## Other
 [JQTumblrHud-高仿Tumblr App 加载指示器hud](https://github.com/xiaohange/JQTumblrHud)
@@ -100,7 +103,11 @@ Parameters:      参数设置 字典传输
 [JQMenuPopView-仿Tumblr弹出视图发音频、视频、图片、文字的视图](https://github.com/xiaohange/JQMenuPopView)
 
 ## Star
->iOS开发者交流群：446310206 喜欢就❤️❤️❤️star一下吧！你的支持是我更新的动力！ Love is every every every star! Your support is my renewed motivation!
+
+[CSDN博客](http://blog.csdn.net/qq_31810357)    [新浪微博](http://weibo.com/hanjunqiang) 
+
+iOS开发者交流群：446310206 喜欢就❤️❤️❤️star一下吧！你的支持是我更新的动力！ Love is every every every star! Your support is my renewed motivation!
+
 
 ## License
 
