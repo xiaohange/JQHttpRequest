@@ -72,6 +72,11 @@ typedef void(^JQFileSuccess)(NSURLResponse * response,NSURL * filePath);
 - (JQBaseRequest* (^)(NSTimeInterval timeoutInterval))timeoutInterval;
 
 /**
+ *  @brief cer证书验证,不设置则不开启验证,默认不开启
+ */
+- (JQBaseRequest* (^)(NSString * cerName))cerName;
+
+/**
  *  @brief 缓存类型,默认为JQBaseRequestReloadIgnoringLocalCacheData///< 忽略缓存，重新请求
  */
 - (JQBaseRequest* (^)(JQBaseRequestRequestCachePolicy type))Cachetype;

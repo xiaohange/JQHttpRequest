@@ -15,9 +15,9 @@
 		475F3E1A1ED405DC0078E0D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 475F3E181ED405DC0078E0D8 /* LaunchScreen.storyboard */; };
 		475F3E251ED405DC0078E0D8 /* JQHttpRequestDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 475F3E241ED405DC0078E0D8 /* JQHttpRequestDemoTests.m */; };
 		475F3E301ED405DC0078E0D8 /* JQHttpRequestDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 475F3E2F1ED405DC0078E0D8 /* JQHttpRequestDemoUITests.m */; };
-		475F3E421ED4064F0078E0D8 /* JQBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 475F3E3F1ED4064F0078E0D8 /* JQBaseRequest.m */; };
-		475F3E431ED4064F0078E0D8 /* NSJSONSerialization+JQJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 475F3E411ED4064F0078E0D8 /* NSJSONSerialization+JQJSON.m */; };
 		475F3E471ED407220078E0D8 /* ZDCollectionHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 475F3E461ED407220078E0D8 /* ZDCollectionHttpRequest.m */; };
+		478959F01ED6735800170480 /* JQBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 478959ED1ED6735800170480 /* JQBaseRequest.m */; };
+		478959F11ED6735800170480 /* NSJSONSerialization+JQJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 478959EF1ED6735800170480 /* NSJSONSerialization+JQJSON.m */; };
 		5054E6972E4CF01BC999F1E2 /* libPods-JQHttpRequestDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5603A90149FED4085E762339 /* libPods-JQHttpRequestDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -57,13 +57,13 @@
 		475F3E2B1ED405DC0078E0D8 /* JQHttpRequestDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JQHttpRequestDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		475F3E2F1ED405DC0078E0D8 /* JQHttpRequestDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JQHttpRequestDemoUITests.m; sourceTree = "<group>"; };
 		475F3E311ED405DC0078E0D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		475F3E3E1ED4064F0078E0D8 /* JQBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQBaseRequest.h; sourceTree = "<group>"; };
-		475F3E3F1ED4064F0078E0D8 /* JQBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQBaseRequest.m; sourceTree = "<group>"; };
-		475F3E401ED4064F0078E0D8 /* NSJSONSerialization+JQJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+JQJSON.h"; sourceTree = "<group>"; };
-		475F3E411ED4064F0078E0D8 /* NSJSONSerialization+JQJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+JQJSON.m"; sourceTree = "<group>"; };
 		475F3E451ED407220078E0D8 /* ZDCollectionHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDCollectionHttpRequest.h; sourceTree = "<group>"; };
 		475F3E461ED407220078E0D8 /* ZDCollectionHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDCollectionHttpRequest.m; sourceTree = "<group>"; };
 		475F3E481ED407630078E0D8 /* API.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.pch; sourceTree = "<group>"; };
+		478959EC1ED6735800170480 /* JQBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQBaseRequest.h; sourceTree = "<group>"; };
+		478959ED1ED6735800170480 /* JQBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQBaseRequest.m; sourceTree = "<group>"; };
+		478959EE1ED6735800170480 /* NSJSONSerialization+JQJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+JQJSON.h"; sourceTree = "<group>"; };
+		478959EF1ED6735800170480 /* NSJSONSerialization+JQJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+JQJSON.m"; sourceTree = "<group>"; };
 		5603A90149FED4085E762339 /* libPods-JQHttpRequestDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JQHttpRequestDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A705C76178B1223A1B730BDA /* libPods-JQHttpRequestDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JQHttpRequestDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD72DCBABE5F0F3D11407196 /* Pods-JQHttpRequestDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JQHttpRequestDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JQHttpRequestDemo/Pods-JQHttpRequestDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +107,7 @@
 		475F3DFE1ED405DB0078E0D8 = {
 			isa = PBXGroup;
 			children = (
+				478959EB1ED6735800170480 /* JQHttpRequest */,
 				475F3E091ED405DB0078E0D8 /* JQHttpRequestDemo */,
 				475F3E231ED405DC0078E0D8 /* JQHttpRequestDemoTests */,
 				475F3E2E1ED405DC0078E0D8 /* JQHttpRequestDemoUITests */,
@@ -129,7 +130,6 @@
 		475F3E091ED405DB0078E0D8 /* JQHttpRequestDemo */ = {
 			isa = PBXGroup;
 			children = (
-				475F3E3D1ED4064F0078E0D8 /* JQHttpRequest */,
 				475F3E441ED407170078E0D8 /* Test */,
 				475F3E0D1ED405DC0078E0D8 /* AppDelegate.h */,
 				475F3E0E1ED405DC0078E0D8 /* AppDelegate.m */,
@@ -171,17 +171,6 @@
 			path = JQHttpRequestDemoUITests;
 			sourceTree = "<group>";
 		};
-		475F3E3D1ED4064F0078E0D8 /* JQHttpRequest */ = {
-			isa = PBXGroup;
-			children = (
-				475F3E3E1ED4064F0078E0D8 /* JQBaseRequest.h */,
-				475F3E3F1ED4064F0078E0D8 /* JQBaseRequest.m */,
-				475F3E401ED4064F0078E0D8 /* NSJSONSerialization+JQJSON.h */,
-				475F3E411ED4064F0078E0D8 /* NSJSONSerialization+JQJSON.m */,
-			);
-			path = JQHttpRequest;
-			sourceTree = "<group>";
-		};
 		475F3E441ED407170078E0D8 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +178,17 @@
 				475F3E461ED407220078E0D8 /* ZDCollectionHttpRequest.m */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		478959EB1ED6735800170480 /* JQHttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				478959EC1ED6735800170480 /* JQBaseRequest.h */,
+				478959ED1ED6735800170480 /* JQBaseRequest.m */,
+				478959EE1ED6735800170480 /* NSJSONSerialization+JQJSON.h */,
+				478959EF1ED6735800170480 /* NSJSONSerialization+JQJSON.m */,
+			);
+			path = JQHttpRequest;
 			sourceTree = "<group>";
 		};
 		AB0EDFA146D6B4E004720725 /* Frameworks */ = {
@@ -388,9 +388,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				478959F11ED6735800170480 /* NSJSONSerialization+JQJSON.m in Sources */,
+				478959F01ED6735800170480 /* JQBaseRequest.m in Sources */,
 				475F3E121ED405DC0078E0D8 /* ViewController.m in Sources */,
-				475F3E431ED4064F0078E0D8 /* NSJSONSerialization+JQJSON.m in Sources */,
-				475F3E421ED4064F0078E0D8 /* JQBaseRequest.m in Sources */,
 				475F3E0F1ED405DC0078E0D8 /* AppDelegate.m in Sources */,
 				475F3E0C1ED405DC0078E0D8 /* main.m in Sources */,
 				475F3E471ED407220078E0D8 /* ZDCollectionHttpRequest.m in Sources */,

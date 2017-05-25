@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString* JQName;
 @property (nonatomic, copy) NSString* JQFilename;
 @property (nonatomic, copy) NSString* JQMimeType;
+@property (nonatomic, copy) NSString* cerNamed;
 @property (nonatomic, copy) id parameters;
 @property (nonatomic, copy) NSDictionary* JQHTTPHeader;
 
@@ -30,7 +31,6 @@
     dispatch_once(&onceToken, ^{
         _sharedManager = [[JQBaseRequest alloc] initWithBaseURL:[NSURL URLWithString:@""]]; // 不想设置可以在外层设置
     });
-    
     return _sharedManager;
 }
 -(void)netWorkReachability {
@@ -81,8 +81,7 @@
     self.JQRequestCache = JQBaseRequestReloadIgnoringLocalCacheData;
     //缓存时间默认为 60*60
     self.cachTimeoutInterval = 60*60;
-//    self.securityPolicy.allowInvalidCertificates = YES;
-    //self.securityPolicy = [self customSecurityPolicy];
+    
     return self;
 }
 
@@ -104,6 +103,13 @@
 - (JQBaseRequest* (^)(NSTimeInterval))timeoutInterval {
     return ^JQBaseRequest* (NSTimeInterval timeoutInterval) {
         self.requestSerializer.timeoutInterval = timeoutInterval;
+        
+        return self;
+    };
+}
+- (JQBaseRequest* (^)(NSString * cerName))cerName {
+    return ^JQBaseRequest* (NSString * cerName) {
+        self.cerNamed = cerName;
         
         return self;
     };
@@ -161,8 +167,7 @@
 }
 
 - (void)startRequestWithSuccess:(JQResponseSuccess)Success progress:(JQProgress)Progress failure:(JQResponseFail)Fail {
-
-     JQBaseRequest * manager = [[self class]sharedManager];
+    JQBaseRequest * manager = [[self class]sharedManager]; [self judgeCer];
     //设置请求头
     [self setupHTTPHeaderWithManager:manager];
 
@@ -211,8 +216,7 @@
     switch (self.JQRequestType) {
         case JQRequestMethodGET: {
             [manager GET:self.url parameters:self.parameters progress:^(NSProgress * _Nonnull downloadProgress) {
-//                progress(downloadProgress.fractionCompleted)
-                Progress(downloadProgress);//downloadProgress.fractionCompleted
+                Progress(downloadProgress);
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 if ([responseObject isKindOfClass:[NSData class]]) {
                     responseObject = [NSJSONSerialization objectWithJSONData:responseObject];
@@ -272,7 +276,7 @@
 }
 
 -(void)uploadfileWithSuccess:(JQResponseSuccess)Success progress:(JQProgress)Progress failure:(JQResponseFail)Fail {
-    JQBaseRequest * manager = [[self class]sharedManager];
+    JQBaseRequest * manager = [[self class]sharedManager]; [self judgeCer];
     [manager POST:self.url parameters:self.parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData:self.JQFile_data name:self.JQName fileName:self.JQFilename mimeType:self.JQMimeType];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -285,7 +289,7 @@
 }
 
 -(NSURLSessionDownloadTask *)downloadWithSuccess:(JQFileSuccess)Success progress:(JQProgress)Progress failure:(JQResponseFail)Fail {
-    JQBaseRequest * manager = [[self class]sharedManager];
+    JQBaseRequest * manager = [[self class]sharedManager]; [self judgeCer];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
     NSURLSessionDownloadTask *downloadtask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         Progress(downloadProgress);
@@ -321,19 +325,28 @@
 }
 
 #pragma mark - https认证
-- (AFSecurityPolicy*)customSecurityPolicy
+- (void)judgeCer
+{
+    if (self.cerNamed) {
+        self.securityPolicy.allowInvalidCertificates = YES;
+        self.securityPolicy = [self customSecurityPolicy:self.cerNamed];
+    }else{
+        self.securityPolicy.allowInvalidCertificates = NO;
+    }
+}
+- (AFSecurityPolicy*)customSecurityPolicy:(NSString *)cerName
 {
     // 先导入证书
-    NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"xxx" ofType:@"cer"]; //证书的路径
+    NSString *cerPath = [[NSBundle mainBundle] pathForResource:cerName ofType:@"cer"]; //证书的路径
     NSData *certData = [NSData dataWithContentsOfFile:cerPath];
-
+    
     // AFSSLPinningModeCertificate 使用证书验证模式
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-
+    
     // allowInvalidCertificates 是否允许无效证书（也就是自建的证书），默认为NO
     // 如果是需要验证自建证书，需要设置为YES
     securityPolicy.allowInvalidCertificates = YES;
-
+    
     //validatesDomainName 是否需要验证域名，默认为YES；
     //假如证书的域名与你请求的域名不一致，需把该项设置为NO；如设成NO的话，即服务器使用其他可信任机构颁发的证书，也可以建立连接，这个非常危险，建议打开。
     //置为NO，主要用于这种情况：客户端请求的是子域名，而证书上的是另外一个域名。因为SSL证书上的域名是独立的，假如证书上注册的域名是www.google.com，那么mail.google.com是无法验证通过的；当然，有钱可以注册通配符的域名*.google.com，但这个还是比较贵的。
