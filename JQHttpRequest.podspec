@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "JQHttpRequest"
-s.version      = "0.0.3"
+s.version      = "0.0.4"
 s.summary      = "This library is based on AFNetworking3.1's Get, Post, Put, Delete, and two encapsulated Network Libraries"
 s.homepage     = "https://github.com/xiaohange/JQHttpRequest"
 s.license      = { :type => "MIT", :file => "LICENSE" }
