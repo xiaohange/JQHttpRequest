@@ -104,7 +104,7 @@ Parameters:      参数设置 字典传输
 
 ## Star
 
-[CSDN博客](http://blog.csdn.net/qq_31810357)    [新浪微博](http://weibo.com/hanjunqiang) 
+[CSDN博客](http://blog.csdn.net/qq_31810357)    
 
 iOS开发者交流群：446310206 喜欢就❤️❤️❤️star一下吧！你的支持是我更新的动力！ Love is every every every star! Your support is my renewed motivation!
 
