@@ -51,7 +51,7 @@
     
     // 在这里除了.setRequest(url)和startRequestWithSuccess failure方法,其他都是不必要的,你可以这样:
     
-    [[JQBaseRequest sharedManager].setRequest(COLLECTION_LIST) startRequestWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+    [[JQBaseRequest sharedManager].setRequest(COLLECTION_LIST).HTTPHeader(@{@"hahah":@"nihao"}) startRequestWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@",responseObject);
     } progress:^(NSProgress *progress) {
         

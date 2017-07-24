@@ -170,7 +170,6 @@
     JQBaseRequest * manager = [[self class]sharedManager]; [self judgeCer];
     //设置请求头
     [self setupHTTPHeaderWithManager:manager];
-
     NSString *cacheKey = self.url?self.url:@"";
     if (self.parameters) {
         if (![NSJSONSerialization isValidJSONObject:self.parameters]) return;//参数不是json类型
@@ -276,7 +275,10 @@
 }
 
 -(void)uploadfileWithSuccess:(JQResponseSuccess)Success progress:(JQProgress)Progress failure:(JQResponseFail)Fail {
+    
     JQBaseRequest * manager = [[self class]sharedManager]; [self judgeCer];
+    [self setupHTTPHeaderWithManager:manager]; // 设置请求头
+    
     [manager POST:self.url parameters:self.parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData:self.JQFile_data name:self.JQName fileName:self.JQFilename mimeType:self.JQMimeType];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -289,8 +291,11 @@
 }
 
 -(NSURLSessionDownloadTask *)downloadWithSuccess:(JQFileSuccess)Success progress:(JQProgress)Progress failure:(JQResponseFail)Fail {
+    
     JQBaseRequest * manager = [[self class]sharedManager]; [self judgeCer];
+    [self setupHTTPHeaderWithManager:manager]; // 设置请求头
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
+    
     NSURLSessionDownloadTask *downloadtask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         Progress(downloadProgress);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
@@ -316,6 +321,8 @@
     for (NSString * key in self.JQHTTPHeader.allKeys) {
         [manager.requestSerializer setValue:self.JQHTTPHeader[key] forHTTPHeaderField:key];
     }
+    // 这里向头部加密, 例如:
+//    [manager.requestSerializer setValue:@"YXNkZmV3ZmV3ZmVjc2Rj" forHTTPHeaderField:@"app_Token"];
     return manager;
 }
 
